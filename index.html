@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PARTE I – ALGORITMO E LÓGICA DE PROGRAMAÇÃO</title>
+</head>
+<body>
+    <h1>PARTE I – ALGORITMO E LÓGICA DE PROGRAMAÇÃO</h1>
+    <div id="result"></div>
+
+    <script>
+        // Espera o DOM estar carregado antes de manipular elementos
+        document.addEventListener("DOMContentLoaded", function() {
+            const resultDiv = document.getElementById('result');
+
+            // Função para solicitar números
+            function solicitarNumero() {
+                resultDiv.innerHTML += "<h2>Solicitar Números</h2>";
+                let numero;
+
+                while (true) {
+                    numero = parseInt(prompt("Exercício 01\n Informe um número (digite 3 para sair):"));
+
+                    if (numero === 3) {
+                        alert("Você digitou 3. O programa será encerrado.");
+                        break;
+                    } else {
+                        resultDiv.textContent += "Você digitou: " + numero + "\n";
+                    }
+                }
+            }
+
+            // Função para verificar a senha
+            function verificarSenha() {
+                resultDiv.innerHTML += "<h2>Verificação de Senha</h2>";
+                const senhaCorreta = "senha123";
+                let tentativas = 0;
+                let senha;
+
+                do {
+                    senha = prompt("Exercício 02\n Digite a senha de acesso (tentativa " + (tentativas + 1) + " de 3):");
+                    tentativas++;
+
+                    if (senha === senhaCorreta) {
+                        alert("Acesso concedido!");
+                        resultDiv.textContent += "Acesso concedido!\n";
+                        break;
+                    }
+                } while (tentativas < 3);
+
+                if (tentativas === 3 && senha !== senhaCorreta) {
+                    alert("Senha bloqueada!");
+                    resultDiv.textContent += "Senha bloqueada!\n";
+                }
+            }
+            solicitarNumero();
+            verificarSenha();
+            
+            resultDiv.innerHTML += "<h2>Exercício 03 - Solicitar</h2>";
+            resultDiv.innerHTML += "<h2>Exercício 04 - Solicitar Cinco Números</h2>";
+            resultDiv.innerHTML += "<h2>Exercício 06 - Mensagem Personalizada</h2>";
+        });
+    </script>
+    <script src="Exec03.js" defer></script>
+    <script src="Exec04.js" defer></script>
+    <script>
+        
+        function mensagemPersonalizada() {
+            return "Olá! Me chamo Jefferson Silva dos Santos e faço parte do Trilha de Dados!"
+        }
+
+        // Exibindo a mensagem na tela
+        document.addEventListener("DOMContentLoaded", function() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML += "<h2>Mensagem Personalizada</h2>";
+            resultDiv.innerHTML += "<p>" + mensagemPersonalizada() + "</p>";
+        });
+    </script>
+    <script src="Exec06.js" defer></script>
+   
+    <script>
+        // Exercicio 07 - Função para calcular o quadrado de um número
+        function calcularQuadrado(numero) {
+            return numero * numero;
+        }
+
+        const numeroParaCalcular = 5;
+        const resultado = calcularQuadrado(numeroParaCalcular);
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML += "<h2>Resultado do Quadrado</h2>";
+        resultDiv.innerHTML += "<p>O quadrado de " + numeroParaCalcular + " é: " + resultado + "</p>";
+
+        // Exercício 08 - Função para subtrair dois números
+        function Subtracao(numero1, numero2) {
+            return numero1 - numero2;
+        }
+
+        // Exemplo de uso da função Subtracao
+        const resultadoSubtracao = Subtracao(10, 5);
+        resultDiv.innerHTML += "<h2>Resultado da Subtração</h2>";
+        resultDiv.innerHTML += "<p>A subtração de 10 e 5 é: " + resultadoSubtracao + "</p>";
+    </script>
+
+</body>
+</html>
